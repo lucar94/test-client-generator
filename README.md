@@ -1,0 +1,1 @@
+### This project is for testing a bug on openapi-generator-maven-plugin when generating client with Java native library with an API that accepts an array of file.

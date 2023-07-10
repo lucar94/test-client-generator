@@ -1,0 +1,37 @@
+openapi: 3.0.3
+info:
+  title: Service
+  version: 1.0.0
+paths:
+  /document:
+    post:
+      summary: Upload documents
+      tags:
+        - document
+      operationId: uploadDocuments
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - files
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        '204':
+          description: Ok, no content
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema: {}
