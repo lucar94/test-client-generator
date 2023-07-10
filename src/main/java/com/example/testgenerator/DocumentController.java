@@ -44,6 +44,8 @@ public class DocumentController implements DocumentApi {
             @Parameter(name = "files", description = "", required = true) @RequestPart(value = "files") List<MultipartFile> files
     ) {
         try {
+            // When invoking this client method the API responses with
+            // org.springframework.web.multipart.support.MissingServletRequestPartException: Required part 'files' is not present.
             var response = client.uploadDocumentsWithHttpInfo(files.stream().map(this::toFile).toList());
             log.info("Received response with status code " + response.getStatusCode());
             return ResponseEntity.status(response.getStatusCode()).build();
